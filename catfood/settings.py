@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-h02yol@a_d#a@^pnk54(h98l6adzg+&@)a5aj0lo(v-#(3!$#n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "192.168.0.123", "catfood-alpha.vercel.app", ".vercel.app"]
+ALLOWED_HOSTS = ["localhost", "192.168.0.123", "catfood-alpha.vercel.app", "catfood-six.vercel.app", ".vercel.app", "*"]
 
 
 # Application definition
