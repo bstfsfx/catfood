@@ -86,13 +86,19 @@ WSGI_APPLICATION = 'catfood.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# Safely get the database URL, falling back to localhost if it's missing or empty
+db_url = os.getenv('DATABASE_URL')
+if not db_url:
+    db_url = f"postgres://postgres:{os.getenv('DB_PASSWORD', '')}@localhost:5432/catfood_db"
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=f"postgres://postgres:{os.getenv('DB_PASSWORD')}@localhost:5432/catfood_db",
+    'default': dj_database_url.parse(
+        db_url,
         conn_max_age=600,
         conn_health_checks=True,
     )
 }
+
 
 
 # Password validation
